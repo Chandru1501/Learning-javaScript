@@ -1,45 +1,68 @@
-// let headTitle = document.getElementById("header-title");
-// headTitle.innerHTML="hello"
-// headTitle.style.borderBottom="solid 5px black";
-// headmain = document.getElementById("main-header");
-// // headmain.style.border="solid 5px black";
-// let additem =document.getElementsByClassName(".title");
-// additem.textContent="ADD ITEM";
-// additem.style.color="green";
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
 
-// let items = document.getElementsByClassName("list-group-item")
-// items[2].style.backgroundColor="green";
-// for(let i=0;i<items.length;i++){
-//     items[i].style.fontWeight="bold";
-// }
+// Form submit event
+form.addEventListener('submit', addItem);
+// Delete event
+itemList.addEventListener('click', removeItem);
+// Filter event
+filter.addEventListener('keyup', filterItems);
 
-// let li = document.getElementsByTagName("li");
-// li[4].style.color="blue";
-// li[4].style.backgroundColor="red"
+// Add item
+function addItem(e){
+  e.preventDefault();
 
+  // Get input value
+  var newItem = document.getElementById('item').value;
 
+  // Create new li element
+  var li = document.createElement('li');
+  // Add class
+  li.className = 'list-group-item';
+  // Add text node with input value
+  li.appendChild(document.createTextNode(newItem));
 
-
-// Make the 2nd item have green background color
-// Make the 3rd item invisible
-
-// let Item = document.querySelectorAll("li");
-// Item[1].style.backgroundColor="green";
-// Item[2].style.display="none";
-
-// Using QuerySelectorALL change the font color
-//  to green for 2nd item in the item list
-// Choose all the odd elements and make their
-//  background green using QuerySelectorALL
-
-let odd = document.querySelectorAll(".list-group-item");
- odd[1].style.color="green";
-
-// for(let i=0;i<odd.length;i+=2){
-// odd[i].style.backgroundColor="green";
-// }
-let item = document.querySelectorAll(`.list-group-item:nth-child(odd)`);
-for(let i=0;i<item.length;i++){
-item[i].style.backgroundColor="green";
+  // Create del button element
+  var deleteBtn = document.createElement('button');
+  var editBtn = document.createElement('button');
+  // Add classes to del button
+  deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+  editBtn.className ="btn btn-info btn-sm float-right edit";
+  // Append text node
+  deleteBtn.appendChild(document.createTextNode('X'));
+  editBtn.appendChild(document.createTextNode('edit'));
+  
+  // Append button to li
+  li.appendChild(deleteBtn);
+  li.appendChild(editBtn);
+  // Append li to list
+  itemList.appendChild(li);
 }
 
+// Remove item
+function removeItem(e){
+  if(e.target.classList.contains('delete')){
+    if(confirm('Are You Sure?')){
+      var li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+}
+
+// Filter Items
+function filterItems(e){
+  // convert text to lowercase
+  var text = e.target.value.toLowerCase();
+  // Get lis
+  var items = itemList.getElementsByTagName('li');
+  // Convert to an array
+  Array.from(items).forEach(function(item){
+    var itemName = item.firstChild.textContent;
+    if(itemName.toLowerCase().indexOf(text) != -1){
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
