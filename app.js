@@ -1,11 +1,11 @@
-let headTitle = document.getElementById("header-title");
-headTitle.innerHTML="hello"
-headTitle.style.borderBottom="solid 5px black";
-headmain = document.getElementById("main-header");
-// headmain.style.border="solid 5px black";
-let additem =document.getElementById("title");
-additem.textContent="ADD ITEM";
-additem.style.color="green";
+// let headTitle = document.getElementById("header-title");
+// headTitle.innerHTML="hello"
+// headTitle.style.borderBottom="solid 5px black";
+// headmain = document.getElementById("main-header");
+// // headmain.style.border="solid 5px black";
+// let additem =document.getElementsByClassName(".title");
+// additem.textContent="ADD ITEM";
+// additem.style.color="green";
 
 // let items = document.getElementsByClassName("list-group-item")
 // items[2].style.backgroundColor="green";
@@ -20,10 +20,10 @@ additem.style.color="green";
 
 
 
-//Make the 2nd item have green background color
-//Make the 3rd item invisible
+// Make the 2nd item have green background color
+// Make the 3rd item invisible
 
-let Item = document.querySelectorAll("li");
+// let Item = document.querySelectorAll("li");
 // Item[1].style.backgroundColor="green";
 // Item[2].style.display="none";
 
@@ -42,3 +42,4 @@ let item = document.querySelectorAll(`.list-group-item:nth-child(odd)`);
 for(let i=0;i<item.length;i++){
 item[i].style.backgroundColor="green";
 }
+
