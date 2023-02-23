@@ -1,0 +1,16 @@
+.container{
+    border: 2px solid;
+    width: 400px;
+    height: auto;
+    margin-top: 100px;
+}
+
+#btn{
+    margin: 10px;
+    margin-left:40%;
+}
+h3{
+    margin-left: 20%;
+    margin-top: 20px;
+    
+}
