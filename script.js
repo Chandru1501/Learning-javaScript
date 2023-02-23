@@ -4,7 +4,12 @@ submit.addEventListener("click",store)
 function store(e){
 let user=document.querySelector("#username")
 let email=document.querySelector("#email")
-localStorage.setItem(user.value,email.value);
-console.log(user.value)
-console.log(email.value)
+let myobj ={
+    "username": user.value,
+    "email": email.value,
+}
+
+let myobj_serialized = JSON.stringify(myobj);
+localStorage.setItem("userdata",myobj_serialized);
+// console.log(myobj_serialized)
 }
