@@ -10,6 +10,6 @@ let myobj ={
 }
 
 let myobj_serialized = JSON.stringify(myobj);
-localStorage.setItem("userdata",myobj_serialized);
+localStorage.setItem(email.value,myobj_serialized);
 // console.log(myobj_serialized)
 }
