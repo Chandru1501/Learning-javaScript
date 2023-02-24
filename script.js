@@ -22,24 +22,32 @@ var li = document.createElement('li');
 li.className = 'list-group-item';
 li.append("username: "+myobj.username," email: "+myobj.email," phone: "+myobj.phone);
 var deleteBtn = document.createElement('button');
+let editbtn = document.createElement("button");
+
 deleteBtn.className="btn btn-danger delete";
-deleteBtn.appendChild(document.createTextNode("delete"));
-li.appendChild(deleteBtn)
-console.log(li);
+editbtn.className="btn btn-success edit";
+
+deleteBtn.appendChild(document.createTextNode("Delete"));
+editbtn.appendChild(document.createTextNode("Edit"));
+li.appendChild(deleteBtn);
+li.appendChild(editbtn);
+// console.log(li);
 list.appendChild(li);
-}
+console.log(list.lastChild.lastChild)
 
 
-list.addEventListener("click",removeItem);
-
-function removeItem(e){
-    if(e.target.classList.contains('delete')){
-      if(confirm('Are You Sure can we delete that item ? ')){
-        var li = e.target.parentElement;
-        list.removeChild(li);
-      }
+deleteBtn.onclick=() =>{
+    if(confirm('Are You Sure can we delete that item ? ')){
+      list.removeChild(li);
     }
   }
 
+editbtn.onclick =(e) => {
+ localStorage.removeItem(email.value)
+ list.removeChild(li);
+ user.value=myobj.username;
+ email.value=myobj.email;
+ phone.value=myobj.phone;
+}
 
-
+}
