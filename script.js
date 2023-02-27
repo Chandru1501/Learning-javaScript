@@ -18,6 +18,7 @@ let myobj ={
 
 let myobj_serialized = JSON.stringify(myobj);
 localStorage.setItem(email.value,myobj_serialized);
+
 var li = document.createElement('li');
 li.className = 'list-group-item';
 li.append("username: "+myobj.username," email: "+myobj.email," phone: "+myobj.phone);
