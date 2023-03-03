@@ -1,7 +1,7 @@
 .container{
     border: 2px solid;
-    width: 500px;
     height: 400px;
+    width: auto;
     margin-top: 100px;
 }
 
@@ -10,8 +10,8 @@
     margin-left:40%;
 }
 h3{
-    margin-left: 20%;
-    margin-top: 20px;
+    align-self: center; 
+    padding: 12px;
     
 }
 
