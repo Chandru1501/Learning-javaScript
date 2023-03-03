@@ -27,6 +27,7 @@ axios.post("https://crudcrud.com/api/44971e39c8b845a980f2dcb598e5f36a/userdetail
   console.log(err);
 })
 
+
 var li = document.createElement('li');
 li.className = 'list-group-item';
 li.append("username: "+myobj.username," email: "+myobj.email," phone: "+myobj.phone);
