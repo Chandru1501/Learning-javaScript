@@ -1,16 +1,18 @@
+var myobj;
 let submit = document.getElementById("btn")
+
 submit.addEventListener("click",store)
 
 let list = document.querySelector("#items");
 
-
-
 function store(e){
+
  e.preventDefault();
-let user=document.querySelector("#username")
-let email=document.querySelector("#email")
-let phone=document.querySelector("#Phone")
-let myobj ={
+var user=document.querySelector("#username")
+var email=document.querySelector("#email")
+var phone=document.querySelector("#Phone")
+
+var myobj ={
     "username": user.value,
     "email": email.value,
     "phone": phone.value,
@@ -19,7 +21,7 @@ let myobj ={
 // let myobj_serialized = JSON.stringify(myobj);
 // localStorage.setItem(email.value,myobj_serialized);
 
-axios.post("https://crudcrud.com/api/44971e39c8b845a980f2dcb598e5f36a/userdetails",myobj)
+axios.post("https://crudcrud.com/api/a3a105ba59b9495881dd5630a8ab85a6/userdetails",myobj)
 .then((response)=> {
   console.log(response);
 })
@@ -27,6 +29,12 @@ axios.post("https://crudcrud.com/api/44971e39c8b845a980f2dcb598e5f36a/userdetail
   console.log(err);
 })
 
+showoutputonscreen(myobj);
+
+}
+
+
+function showoutputonscreen(myobj){
 
 var li = document.createElement('li');
 li.className = 'list-group-item';
@@ -41,16 +49,11 @@ deleteBtn.appendChild(document.createTextNode("Delete"));
 editbtn.appendChild(document.createTextNode("Edit"));
 li.appendChild(deleteBtn);
 li.appendChild(editbtn);
-// console.log(li);
 list.appendChild(li);
-console.log(list.lastChild.lastChild)
-
 
 deleteBtn.onclick=() =>{
     if(confirm('Are You Sure can we delete that item ? ')){
       list.removeChild(li);
-
-axios.delete("https://crudcrud.com/api/44971e39c8b845a980f2dcb598e5f36a/userdetails") 
    }
   }
 
@@ -63,3 +66,22 @@ editbtn.onclick =(e) => {
 }
 
 }
+
+
+window.addEventListener("DOMContentLoaded",showdetails);
+
+function showdetails(){
+ 
+  axios.get("https://crudcrud.com/api/a3a105ba59b9495881dd5630a8ab85a6/userdetails")
+  .then((response)=> {
+    for(let i=0;i<response.data.length;i++){
+      showoutputonscreen(response.data[i]);
+    }
+
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+}
+
+
