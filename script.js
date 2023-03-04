@@ -21,7 +21,7 @@ var myobj ={
 // let myobj_serialized = JSON.stringify(myobj);
 // localStorage.setItem(email.value,myobj_serialized);
 
-axios.post("https://crudcrud.com/api/a3a105ba59b9495881dd5630a8ab85a6/userdetails",myobj)
+axios.post("https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails",myobj)
 .then((response)=> {
   console.log(response);
 })
@@ -38,7 +38,7 @@ function showoutputonscreen(myobj){
 
 var li = document.createElement('li');
 li.className = 'list-group-item';
-li.append("username: "+myobj.username," email: "+myobj.email," phone: "+myobj.phone);
+li.append("id : "+myobj._id,"username: "+myobj.username," email: "+myobj.email," phone: "+myobj.phone);
 var deleteBtn = document.createElement('button');
 let editbtn = document.createElement("button");
 
@@ -54,6 +54,10 @@ list.appendChild(li);
 deleteBtn.onclick=() =>{
     if(confirm('Are You Sure can we delete that item ? ')){
       list.removeChild(li);
+      axios.delete(`https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails/${myobj._id}`)
+      .then((response)=>{
+            console.log(response);
+      })
    }
   }
 
@@ -72,7 +76,7 @@ window.addEventListener("DOMContentLoaded",showdetails);
 
 function showdetails(){
  
-  axios.get("https://crudcrud.com/api/a3a105ba59b9495881dd5630a8ab85a6/userdetails")
+  axios.get("https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails")
   .then((response)=> {
     for(let i=0;i<response.data.length;i++){
       showoutputonscreen(response.data[i]);
