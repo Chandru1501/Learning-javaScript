@@ -5,12 +5,14 @@ submit.addEventListener("click",store)
 
 let list = document.querySelector("#items");
 
-function store(e){
-
- e.preventDefault();
 var user=document.querySelector("#username")
 var email=document.querySelector("#email")
 var phone=document.querySelector("#Phone")
+
+
+function store(e){
+
+ e.preventDefault();
 
 var myobj ={
     "username": user.value,
@@ -65,11 +67,24 @@ deleteBtn.onclick=() =>{
   }
 
 editbtn.onclick =(e) => {
- localStorage.removeItem(email.value)
  list.removeChild(li);
  user.value=myobj.username;
  email.value=myobj.email;
  phone.value=myobj.phone;
+
+ var newobj = {
+  "username": myobj.username,
+  "email": myobj.email,
+  "phone": myobj.phone
+ }
+
+ axios.put(`https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails/${myobj._id}`,newobj)
+ .then((response)=>{
+       console.log(response);
+ })
+ .catch((err)=>{
+   console.log(err);
+ })
 }
 
 }
