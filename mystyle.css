@@ -1,0 +1,33 @@
+#table1{
+    font-size: 25px;
+    font-weight: 500;
+}
+#table2{
+    font-size: 25px;
+    font-weight: 500;
+}
+#table3{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.container{
+    border: 2px solid;
+    height: 450px;
+    padding: 20px;
+   }
+   
+   #btn{
+       margin: 10px;
+       margin-left:42%;
+   }
+   h2{
+   
+       text-align: center; 
+       padding: 12px;    
+   }
+   .list-group-item{
+    font-weight: 400;
+    font-size: medium;
+   }
+   
