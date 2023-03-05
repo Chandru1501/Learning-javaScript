@@ -23,7 +23,7 @@ var myobj ={
 // let myobj_serialized = JSON.stringify(myobj);
 // localStorage.setItem(email.value,myobj_serialized);
 
-axios.post("https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails",myobj)
+axios.post("https://crudcrud.com/api/af806a6810674447b9443c177d401700/userdetails",myobj)
 .then((response)=> {
   console.log(response);
 })
@@ -56,13 +56,7 @@ list.appendChild(li);
 deleteBtn.onclick=() =>{
     if(confirm('Are You Sure can we delete that item ? ')){
       list.removeChild(li);
-      axios.delete(`https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails/${myobj._id}`)
-      .then((response)=>{
-            console.log(response);
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
+      deleteuser(myobj);
    }
   }
 
@@ -72,29 +66,27 @@ editbtn.onclick =(e) => {
  email.value=myobj.email;
  phone.value=myobj.phone;
 
- var newobj = {
-  "username": myobj.username,
-  "email": myobj.email,
-  "phone": myobj.phone
- }
-
- axios.put(`https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails/${myobj._id}`,newobj)
- .then((response)=>{
-       console.log(response);
- })
- .catch((err)=>{
-   console.log(err);
- })
+deleteuser(myobj)
 }
 
 }
 
+function deleteuser(myobj){
+// axios.delete(`https://crudcrud.com/api/af806a6810674447b9443c177d401700/userdetails/${myobj._id}`)
+// .then((response)=>{
+//       console.log(response);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
+console.log(myobj)
+}
 
 window.addEventListener("DOMContentLoaded",showdetails);
 
 function showdetails(){
  
-  axios.get("https://crudcrud.com/api/0061aa2fac6e4c928bddfd9a24aff101/userdetails")
+  axios.get("https://crudcrud.com/api/af806a6810674447b9443c177d401700/userdetails")
   .then((response)=> {
     for(let i=0;i<response.data.length;i++){
       showoutputonscreen(response.data[i]);
