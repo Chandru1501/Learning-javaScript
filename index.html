@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <form name="myform">
-        <h3 class="text-success">ENTER DETAILS</h2>
+        <h3 class="text-success">ENTER DETAILS</h3>
         <hr>
        <div class="align-self-center">
         <label for="amount">Enter expense amount</label><br>
@@ -22,9 +22,14 @@
         <input id="descriptioninput" class="form-control mr-2" name="expenseamount"  required>
 
         <select id="description" name="description" name="description" class="btn btn-success"data-role="select-dropdown" data-profile="minimal">
-           <li><option>select importance</option></li>
-           <option>IMPORTANT</option>
-           <option>NOT IMPORTANT</option>
+           <li><option>Choose description</option></li>
+           <option>Movie</option>
+           <option>house rent</option>
+           <option>food</option>
+           <option>Dress</option>
+           <option>electricity</option>
+           <option>fuel</option>
+           
 
         </select>
         </div>
@@ -36,13 +41,14 @@
             <option>select one</option>
             <option value="movie">movie</option>
             <option value="house rent">house rent</option>
-            <option value="diesel">diesel</option>
-            <option value="dress">dress</option>
-            <option value="petrol">petrol</option>
+            <option value="food">Food</option>
+            <option value="dress">Dress</option>
+            <option value="fuel">Fuel</option>
+            <option value="electricity">electricity</option>
           </select>
             </div>
         </forms>
-             <button id="submiting" type="submit" class="btn btn-danger" > add item </button>
+             <button id="submiting" type="submit" class="btn btn-danger" > ADD ITEM </button>
 
 <ul id="items" class="list-group"></ul>
 

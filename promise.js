@@ -41,16 +41,16 @@
 // console.log("PERSON4: SHOWS TICKETS")
 // console.log("PERSON5: SHOWS TICKETS")
 
-setTimeout(()=> {
-      console.log("settimeout")
-},000)
-console.log("PERSON5: SHOWS TICKETS")
-console.log("PERSON5: SHOWS TICKETS")
-console.log("PERSON5: SHOWS TICKETS")
-console.log("PERSON5: SHOWS TICKETS")
+// setTimeout(()=> {
+//       console.log("settimeout")
+// },000)
+// console.log("PERSON5: SHOWS TICKETS")
+// console.log("PERSON5: SHOWS TICKETS")
+// console.log("PERSON5: SHOWS TICKETS")
+// console.log("PERSON5: SHOWS TICKETS")
 
 
-console.log("PERSON5: SHOWS TICKETS")
-console.log("PERSON5: SHOWS TICKETS")
-console.log("PERSON5: SHOWS TICKETS")
-console.log("PERSON5: SHOWS TICKETS")
+// console.log("PERSON5: SHOWS TICKETS")
+// console.log("PERSON5: SHOWS TICKETS")
+// console.log("PERSON5: SHOWS TICKETS")
+// console.log("PERSON5: SHOWS TICKETS")

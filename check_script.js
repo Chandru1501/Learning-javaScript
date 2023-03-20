@@ -10,11 +10,12 @@ var selection = document.querySelector("#category");
 select.addEventListener("change",() =>{
 var descriptionval = select.options[select.selectedIndex].textContent;
 description.value=descriptionval;
-
+})
 
 selection.addEventListener("change",() =>{
 var categoryval = selection.options[selection.selectedIndex].textContent;
 category.value= categoryval
+})
 
 const additems = document.getElementById("submiting");
 
@@ -27,6 +28,10 @@ myObj = {
     "description": description.value,
     "category": category.value,
 }
+  displayitems(myObj);
+}
+
+function displayitems(myObj) {
 
 let myobj_serialized = JSON.stringify(myObj);
 localStorage.setItem(amount.value,myobj_serialized);
@@ -46,17 +51,16 @@ li.appendChild(deleteBtn);
 li.appendChild(editbtn);
 
 list.appendChild(li);
-console.log(list)
 
 deleteBtn.onclick=() =>{
     if(confirm('Are You Sure can we delete that item ? ')){
-      localStorage.removeItem(amount.value)
       list.removeChild(li);
+      deleteonlocal(myObj.amount);
     }
   }
 
 editbtn.onclick =() => {
- localStorage.removeItem(amount.value)
+ deleteonlocal( myObj.amount);
  list.removeChild(li);
  amount.value=myObj.amount;
  description.value=myObj.description;
@@ -64,5 +68,14 @@ editbtn.onclick =() => {
 
 }
 }
+
+window.addEventListener("DOMContentLoaded",()=>{
+for(let i=0;i<localStorage.length;i++){
+  displayitems(JSON.parse(localStorage.getItem(localStorage.key(i))));
+}
 })
-})
+
+
+function deleteonlocal(keyvalue){
+  localStorage.removeItem(keyvalue);
+}

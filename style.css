@@ -1,17 +1,16 @@
 .container{
  border: 2px solid;
- height: 350px;
- padding: 20px;
+ height: 410px;
+ width: 600px;
+ padding: 25px;
 }
 
-#btn{
+#submiting{
     margin: 10px;
     margin-left:42%;
 }
-h2{
-
-    text-align: center; 
-    padding: 12px;    
+h3{
+   text-align: center; 
 }
 
 

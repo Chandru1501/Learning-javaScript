@@ -1,7 +1,6 @@
 var table1 = document.querySelector("#table1")
 var table2 = document.querySelector("#table2")
 var table3 = document.querySelector("#table3")
-var total = document.querySelector("#total");
 
 var foodprice = document.querySelector("#foodprice");
 var foodname = document.querySelector("#dishname");
@@ -102,7 +101,6 @@ function tableThree(myObj){
     li.appendChild(deleteBtn);
 
     table3.appendChild(li);
-    if(myObj)
     postcloud(myObj);
 
     deleteBtn.onclick=() =>{
@@ -119,7 +117,7 @@ function tableThree(myObj){
 
 
 function postcloud(myObj){
-axios.post("https://crudcrud.com/api/fe9bf4b9c3d54a5c834b97813e1485a2/order_details",myObj)
+axios.post("https://crudcrud.com/api/85413ead77c34958a62a578db0a87f8f/order_details",myObj)
 .then((response)=>{
     console.log(response)
 })
@@ -131,7 +129,7 @@ axios.post("https://crudcrud.com/api/fe9bf4b9c3d54a5c834b97813e1485a2/order_deta
 function deletecloud(myObj){
     console.log(myObj)
 
-    axios.delete(`https://crudcrud.com/api/fe9bf4b9c3d54a5c834b97813e1485a2/order_details/${myObj._id}`)
+    axios.delete(`https://crudcrud.com/api/85413ead77c34958a62a578db0a87f8f/order_details/${myObj._id}`)
     .then((response)=>{
         console.log(response)
     })
@@ -144,7 +142,7 @@ window.addEventListener("DOMContentLoaded",showdetails);
 
 function showdetails(){
  
-  axios.get("https://crudcrud.com/api/fe9bf4b9c3d54a5c834b97813e1485a2/order_details")
+  axios.get("https://crudcrud.com/api/85413ead77c34958a62a578db0a87f8f/order_details")
   .then((response)=> {
     console.log(response)
 
@@ -169,5 +167,4 @@ function showdetails(){
     console.log(err);
   })
 }
-
 
