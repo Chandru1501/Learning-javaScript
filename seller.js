@@ -65,7 +65,7 @@ deleteBtn.onclick= (e)=>{
     //while subracting while deleting total
     totalvalue =totalvalue-parseInt(myobj.productPrice)
      total.textContent=totalvalue;
-    deleteuser(myobj);
+    deletething(myobj);
 }
 }
 
@@ -73,7 +73,7 @@ deleteBtn.onclick= (e)=>{
 
 
 
-function deleteuser(myobj){
+function deletething(myobj){
     axios.delete(`https://crudcrud.com/api/31315ecfa5fe4e34ac30768cde7ec27a/add_user/${myobj._id}`)
     .then((response)=>{
           console.log(response);

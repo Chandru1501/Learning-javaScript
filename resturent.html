@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>addproducts</title>
+    <title>Food details</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
     <div class="container">
-    <h2 class="text-success">Enter Food details</h2>
+    <h2 class="text-success">ENTER FOOD DETAILS</h2>
     <hr>
 
     <div>
         <form action="">
 
         <label for="food_price">Food Price</label>  
-          <input type="number" class="form-control mr-2" id="foodprice"> <br>
+          <input type="number" class="form-control mr" id="foodprice"> <br>
 
           <label for="product_name">Dish Name</label>  
           <input type="text" class="form-control mr-2" id="dishname">
@@ -34,7 +34,7 @@
             </select>
             </div>
             <div>
-                <input type="button" class="btn btn-info" value="Add product" id="btn">
+                <input type="button" class="btn btn-info" value="ADD DETAILS" id="btn">
             </div>
 
         </form>
@@ -42,16 +42,19 @@
     </div>
     
 
-    <h2>Orders</h2> 
-    <ul id="table1" class="list-group">Table1</ul>
+    <h2 id="orders">Orders</h2> 
+
+    <div class="orderitems">
+        
+    <ul id="table1" class="tables"  class="list-group">Table1</ul>
 
 
-    <ul id="Table2" class="list-group">Table2</ul> 
+    <ul id="Table2" class="tables"  class="list-group">Table2</ul> 
 
 
-    <ul id="Table3" class="list-group">Table3</ul> 
+    <ul id="Table3" class="tables"  class="list-group">Table3</ul> 
 
-
+</div>
 
 
 

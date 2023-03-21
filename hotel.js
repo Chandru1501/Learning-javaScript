@@ -4,7 +4,7 @@ var table3 = document.querySelector("#table3")
 
 var foodprice = document.querySelector("#foodprice");
 var foodname = document.querySelector("#dishname");
-let description = document.querySelector("#descriptioninput")
+var description = document.querySelector("#descriptioninput")
 
 var submit = document.querySelector("#btn");
 
@@ -12,13 +12,13 @@ var select = document.querySelector("#description");
 
 
 
-var table="";
+let table="";
 select.addEventListener("change",() =>{
     table = select.options[select.selectedIndex].textContent;
     
 })
 
-submit.addEventListener("click",additem,table);
+submit.addEventListener("click",additem);
 
 function additem(){
 
@@ -27,23 +27,13 @@ function additem(){
         "foodName" :  foodname.value,
         "table" : table
      }
-console.log(myobj);
 
-     if(myobj.table=="Table1"){
-        console.log("table one");
-        tableOne(myobj);
-     }
-     if(myobj.table=="Table2"){
-        console.log("table Two")
-        tableTwo(myobj);
-     }
-     if(myobj.table=="Table3"){
-        console.log("table Three")
-        tableThree(myobj);
-     }
+     if(myobj.table=="Table1"){ tables(myobj,table1) }
+     if(myobj.table=="Table2"){ tables(myobj,table2) }
+     if(myobj.table=="Table3"){ tables(myobj,table3) }
 }
 
-function tableOne(myObj){
+function tables(myObj,Table){
 
     var li = document.createElement('li');
     li.className = 'list-group-item';
@@ -54,117 +44,69 @@ function tableOne(myObj){
     li.append("Amount : ",myObj.foodPrice ," Dish Name : ",myObj.foodName);
     li.appendChild(deleteBtn);
 
-    table1.appendChild(li);
-    postcloud(myObj);
+    Table.appendChild(li);
+     postcloud(myObj);
 
     deleteBtn.onclick=() =>{
         if(confirm('Are You Sure can we delete that item ? ')){
-          table1.removeChild(li);
+          Table.removeChild(li);
           deletecloud(myObj);
         }
-      }
-
-}
-
-function tableTwo(myObj){
-
-    
-    var li = document.createElement('li');
-    li.className = 'list-group-item';
-    var deleteBtn = document.createElement('button');
-    deleteBtn.className="btn btn-danger";
-    deleteBtn.appendChild(document.createTextNode("Delete"));
-
-    li.append("Amount : ",myObj.foodPrice ," Dish Name : ",myObj.foodName);
-    li.appendChild(deleteBtn);
-
-    table2.appendChild(li);
-    postcloud(myObj);
-
-    deleteBtn.onclick=() =>{
-        if(confirm('Are You Sure can we delete that item ? ')){
-          table2.removeChild(li);
-          deletecloud(myObj);
-        }
-      }
-}
-
-function tableThree(myObj){
-
-    var li = document.createElement('li');
-    li.className = 'list-group-item';
-    var deleteBtn = document.createElement('button');
-    deleteBtn.className="btn btn-danger";
-    deleteBtn.appendChild(document.createTextNode("Delete"));
-
-    li.append("Amount : ",myObj.foodPrice ," Dish Name : ",myObj.foodName);
-    li.appendChild(deleteBtn);
-
-    table3.appendChild(li);
-    postcloud(myObj);
-
-    deleteBtn.onclick=() =>{
-        if(confirm('Are You Sure can we delete that item ? ')){
-          table3.removeChild(li);
-          deletecloud(myObj);
-    
-        }
-      }
-
+    }
 }
 
 
 
 
-function postcloud(myObj){
-axios.post("https://crudcrud.com/api/85413ead77c34958a62a578db0a87f8f/order_details",myObj)
-.then((response)=>{
+async function postcloud(myObj){
+let response = await axios.post("https://crudcrud.com/api/115618e449d64b83aca3c2413344d8ab/order_details",myObj)
+try{
     console.log(response)
-})
-.catch((err)=>{
-    console.log("error")
-})
+}
+catch(err){
+    console.log(`error${err}`)
+}
 }
 
-function deletecloud(myObj){
+async function deletecloud(myObj){
     console.log(myObj)
-
-    axios.delete(`https://crudcrud.com/api/85413ead77c34958a62a578db0a87f8f/order_details/${myObj._id}`)
-    .then((response)=>{
+try{
+   let response = await axios.delete(`https://crudcrud.com/api/115618e449d64b83aca3c2413344d8ab/order_details/${myObj._id}`);
+   
         console.log(response)
-    })
-    .catch((err)=>{
+    }
+    catch(err){
         console.log(err)
-    })
+    }
 }
 
 window.addEventListener("DOMContentLoaded",showdetails);
 
-function showdetails(){
- 
-  axios.get("https://crudcrud.com/api/85413ead77c34958a62a578db0a87f8f/order_details")
-  .then((response)=> {
-    console.log(response)
+async function showdetails(){
+ try{
+  let response = await axios.get("https://crudcrud.com/api/115618e449d64b83aca3c2413344d8ab/order_details")
 
+    console.log(response)
+ 
     for(var i=0;i<response.data.length;i++){
     
         if(response.data[i].table=="Table1"){
-            tableOne(response.data[i]);
+            tables(response.data[i],table1);
         }
 
         if(response.data[i].table=="Table2"){
-            tableTwo(response.data[i]);
+            tables(response.data[i],table2);
         }
 
         if(response.data[i].table=="Table3"){
-           tableThree(response.data[i]);
+           tables(response.data[i],table3);
         }
      
 
     }
-})
-  .catch((err)=>{
+}
+  catch(err){
     console.log(err);
-  })
+  }
 }
 

@@ -4,44 +4,120 @@
 // increaseStudentCount which keep track of the number of students created.
 //Complete the printStudentCount which prints the total count of students created till date
 
-class student{
-    static studentcount=0; 
 
-    constructor(name,age,phone,marks){
-        name =this.name;
-        age = this.age;
-        phone = this.phone;
-        marks = this.marks;
-        student.studentcount++
-    }
-     printStudentCount(){
-        console.log(studentcount);
-    }
+// class Student{
+
+//     static count=0;
+
+//     constructor(name , age , phone , marks){
+//         this.name=name;
+//         this.age=age;
+//         this.phone=phone;
+//         this.marks=marks;
+//         Student.count++;
+//     }
     
-    eligible(){
-        if(this.marks>40){
-            console.log("eligible");
-        }
-        else{
-            console.log("not eligible")
-        }
-    }
+//     eligible(){
+//         if(this.marks>40){
+//             console.log(true);
+//         }
+//         else{
+//             console.log(false);
+//         }
+//     }
+
+//     static printStudentCount(){
+//         console.log(Student.count);
+//     }
+    
+//     }
+    
+//     let stud1 = new Student("chandru",22,7904254184,12);
+    
+//     let stud2 = new Student("chandru",22,7904254184,40);
+
+//     Student.printStudentCount();
+    
+//     let stud3 = new Student("chandru",22,7904254184,56);
+    
+//     let stud4 = new Student("chandru",22,7904254184,39);
+    
+//     stud1.eligible();
+//     stud2.eligible();
+//     stud3.eligible();
+//     stud4.eligible();
+
+//     Student.printStudentCount();
+
+    // let a=10;
+    // const b=50;
+    //  var c=70;
+    // {
+    //     // var c =72;
+    //     // const b =60;
+    //     let a =20;
+    //     console.log(a)
+    //     console.log(b)
+    //     console.log(b)
+    // }
+
+    // console.log(a)
+    // console.log(b)
+    // console.log(c)
+
+
+    // best example for closure.
+
+// function fun1(){
   
+//     let a =10
+//     const b=20
+//     var c =30 
+
+//     return ()=>{
+//         console.log(a);
+//     }
+
+// }
+
+// const z = fun1();
+// console.log(z)
+// z()
+
+
+//  great example for first class functions
+function a(num1,num2,fun){
+
+    return fun(num1,num2);
+
 }
 
-let stud1 = new student("chandru",22,798585414,48);
-let stud2 = new student("abcd",30,9874563215,39);
+function add(num1,num2){
+    return num1+num2
+}
 
-stud1.eligible();
-stud2.eligible();
+ const fun2 = a(5,55,add)
 
-
-
-
+console.log(fun2)
 
 
+// setTimeout(()=>{
+//     console.log("helloo")
+// },7000)
 
 
+let promise = new Promise((resolve,reject)=>{
+    
+    setTimeout(()=>{
+        return "dude"
+    },2000)
+})
+.then((resolve) => {
+  console.log("hello " +resolve);
+})
+.catch(()=>{
+    console.log("not resolved")
+})
 
 
 
